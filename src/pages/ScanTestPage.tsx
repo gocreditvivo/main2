@@ -929,7 +929,7 @@ function extractAccountName(block: string): string {
   return "Unknown Account";
 }
 
- detectMetro2Errors(account: Tradeline, bureau: string): Metro2Violation[] {
+ function detectMetro2Errors(account: Tradeline, bureau: string): Metro2Violation[] {
   const violations: Metro2Violation[] = [];
   const status = account.status?.toLowerCase() || '';
   const remarks = account.remarks?.toLowerCase() || '';
