@@ -929,32 +929,7 @@ function extractAccountName(block: string): string {
   return "Unknown Account";
 }
 
- function detectMetro2Errors(account: Tradeline, bureau: string): Metro2Violation[] {
-  const violations: Metro2Violation[] = [];
-  const status = account.status?.toLowerCase() || '';
-  const remarks = account.remarks?.toLowerCase() || '';
-
-  // 1. The Sold/Transferred Balance Rule
-  if ((remarks.includes('sold') || remarks.includes('transferred')) && account.balance > 0) {
-    violations.push({
-      code: 'M2-BAL-01',
-      description: `Account reported as sold/transferred but shows a balance of $${account.balance}. Must be $0.`,
-      fcraBasis: 'FCRA §623(a)(1) - Inaccurate Balance',
-      strength: 95
-    });
-  }
-
-  // 2. Missing DOFD on Derogatory Accounts
-  if ((status.includes('charge-off') || status.includes('collection')) && !account.dofd) {
-    violations.push({
-      code: 'M2-DATE-02',
-      description: 'Derogatory account is missing the mandatory Date of First Delinquency (DOFD).',
-      fcraBasis: 'FCRA §623(a)(5) - Failure to Provide DOFD',
-      strength: 90
-    });
-  }
-
-  // 3. Past Due on Charge-Off
+ 
   if (status.includes('charge-off') && account.pastDue > 0) {
        violations.push({
         code: 'M2-AMT-03',
