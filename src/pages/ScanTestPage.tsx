@@ -1,15 +1,5 @@
 import React from 'react';
-import { Something } from 'somewhere';
-import { AnotherThing } from 'lucide-react';
-import { FinalThing } from '../components/Whatever';
 
-// ---> CLICK ON THIS EMPTY LINE AND PASTE IT HERE <---
-
-export interface Metro2Violation {
-  // ... the code you cut from the bottom ...
-}
-
-// ... the rest of your app's code will be down here ...
 export default function ScanTestPage() {
 
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -939,7 +929,7 @@ function extractAccountName(block: string): string {
   return "Unknown Account";
 }
 
-export function detectMetro2Errors(account: Tradeline, bureau: string): Metro2Violation[] {
+ detectMetro2Errors(account: Tradeline, bureau: string): Metro2Violation[] {
   const violations: Metro2Violation[] = [];
   const status = account.status?.toLowerCase() || '';
   const remarks = account.remarks?.toLowerCase() || '';
