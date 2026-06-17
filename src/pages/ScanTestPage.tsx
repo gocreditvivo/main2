@@ -1060,4 +1060,5 @@ function parseReport(bureau: Bureau, rawText: string, pageCount: number): Bureau
     accounts, 
     hardInquiries 
   };
-} // <--- This closes your 'parseReport' function
+} // <--- This closes your 'parseReport' function )
+}
