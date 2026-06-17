@@ -1053,7 +1053,7 @@ function parseReport(bureau: Bureau, rawText: string, pageCount: number): Bureau
     }; // <--- This properly closes the object!
     
     accounts.push(tl);
-  } // <--- This closes your 'for (const block of blocks)' loop
+  });
 
   return { 
     bureau: detectedBureau ?? bureau, 
